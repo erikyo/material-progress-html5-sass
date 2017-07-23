@@ -1,0 +1,99 @@
+$progress-bar-color: #26a69a !default;
+$progress-bar-background:#7c7876 !default;
+$progress-height: 6px;
+
+.progress-container {
+	width:80%;
+	display:block;
+	position:relative;
+	margin: -($progress-height / 2) 10% 0;
+
+	progress  {
+		position: relative;
+		height: $progress-height;
+		display: block;
+		width: 100%;
+		color: $progress-bar-color;
+		background-color: $progress-bar-background;
+		border-radius: 1px;
+		background-clip: padding-box;
+		overflow: hidden;
+		margin:0; 
+
+		&[value] {
+			position: absolute;
+			background-color: inherit;
+			top: 0;
+			bottom: 0;
+			background-color: $progress-bar-color;
+			transition: width .3s linear;
+			-webkit-appearance: none;
+			appearance: none;
+		}		
+
+		&[value]::-webkit-progress-bar  {
+			background-color: $progress-bar-background;
+		}
+
+		&[value]::-webkit-progress-value {
+			background-color:$progress-bar-color;
+		}
+
+		&:not([value]) {
+			background-color: $progress-bar-color;
+
+			&:before {
+			  content: '';
+			  position: absolute;
+			  background-color: inherit;
+			  top: 0;
+			  left:0;
+			  bottom: 0;
+			  will-change: left, right;
+			  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+
+			}
+			&:after {
+			  content: '';
+			  position: absolute;
+			  background-color: inherit;
+			  top: 0;
+			  left:0;
+			  bottom: 0;
+			  will-change: left, right;
+			  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+			  animation-delay: 1.15s;
+			}
+		}
+	}
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right:100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 107%;
+    right: -8%;
+  }
+}
