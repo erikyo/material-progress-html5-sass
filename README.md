@@ -3,6 +3,6 @@ A true Html5 &amp; Sass progress bar in Material Design style! Use the &lt;progr
 
 ```html
   <span class="progress-container">
-    <progress max="100" value="{{item.progress}}"></progress>
+    <progress max="100" value="80"></progress>
   </span>
 ```
