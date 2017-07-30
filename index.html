@@ -73,7 +73,7 @@
 			background: #673AB7;
 			border-bottom: 4px solid #51a69a;
 			margin: 0 0 48px;
-			padding: 30px;
+			padding: 32px;
 		}
 		h1, h4 {
 			font-weight: 300;
@@ -81,7 +81,7 @@
 		}
 		h1{
 			color: white;
-			font-size: 42px;
+			font-size: 48px;
 			text-transform:uppercase;
 		}
 		h4 {
@@ -94,7 +94,7 @@
 			font-weight: 300;
 			color: #fff;
 			opacity: 0.8;
-			margin: 8px 32px 10px 0;
+			margin: 0px 32px 10px 0;
 			max-width:1090px;
 		}
 		p {
@@ -115,16 +115,17 @@
 			text-align:left;
 		}
 		div.card, div.credits {
-			  width: 100%;
-			  max-width:1000px;			
-			  padding: 12px 48px 48px; 
-			  margin: 16px auto 32px 32px;
+			width:calc(100% - 64px);
+			box-sizing: border-box;
+			max-width:1100px;			
+			padding: 12px 48px 48px;
+			margin: 16px auto 32px 32px;
 		}
 		div.card {
-			  border-radius: 2px;
-			  position: relative;
-			  background: white;
-			  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			border-radius: 2px;
+			position: relative;
+			background: white;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 		}
 		div.credits {
 			font-size:18px;
