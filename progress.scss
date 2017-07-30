@@ -1,21 +1,31 @@
+//Colors
 $progress-bar-color: #26a69a !default;
 $progress-bar-background:#7c7876 !default;
-$progress-height: 6px;
+
+//Sizes
+$progress-height: 6px !default;
+$progress-width: 100% !default;
+
+//Apparence
+$progress-border-radius: 1px !default;
+
+
 
 .progress-container {
-	width:80%;
+	width:$progress-width;
+	height:$progress-height;
 	display:block;
 	position:relative;
-	margin: -($progress-height / 2) 10% 0;
+	margin: 0 auto;
 
-	progress  {
+	progress {
 		position: relative;
 		height: $progress-height;
 		display: block;
 		width: 100%;
 		color: $progress-bar-color;
 		background-color: $progress-bar-background;
-		border-radius: 1px;
+		border-radius: $progress-border-radius;
 		background-clip: padding-box;
 		overflow: hidden;
 		margin:0; 
@@ -26,7 +36,7 @@ $progress-height: 6px;
 			top: 0;
 			bottom: 0;
 			background-color: $progress-bar-color;
-			transition: width .3s linear;
+			transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
 			-webkit-appearance: none;
 			appearance: none;
 		}		
@@ -37,6 +47,7 @@ $progress-height: 6px;
 
 		&[value]::-webkit-progress-value {
 			background-color:$progress-bar-color;
+			transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
 		}
 
 		&:not([value]) {

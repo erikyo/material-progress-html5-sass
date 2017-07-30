@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>material-progress-html5-sass</title>
+  <link rel="stylesheet" href="progress.css">
+</head>
+<body>
+	<header class="align-left">
+		<h1>material-progress-html5-sass</h1>
+		<p>A true <b>Html5</b> & <b>Sass</b> progress bar in Material Design style! </p>
+		<p>To <b>install it just copy the progress.scss</b> file into your /src/scss/ folder and import it into your main.scss file with @import "YOURASSETSPATH/progress"; <br/>
+		There is nothing more to know just put <b>&lt;progress&gt;</b> inside your html code and will automatically come with the <b>custom progress.scss style</b></p>
+	</header>
+
+	<div class="card">
+		<h4>Determinate progress bar</h4>
+		<p>Use determinate mode for the progress bar when you want to show that a specific quantity of progress has occurred. For example, the percent remaining of a file being retrieved, the amount records in a batch written to database, or the percent remaining of a file that is uploaded.
+		To indicate determinate progress, you must set the max value of the progress bar to max="100" (100 or 1000 or what you want) and set the amount of progress by setting a value="" (like value="80").</p>
+		<code>&lt;progress max="100" value="0"&gt;&lt;/progress&gt;</code>
+		<span class="progress-container">
+			<progress id="determinate" max="100" value="0"></progress>
+		</span>
+	</div>
+
+
+	<div class="card">
+		<h4>Indeterminate progress bar</h4>
+		<p>Use indeterminate mode for the progress bar when you do not know how long an operation will take. Indeterminate mode is the default for progress bar and shows a cyclic animation without a specific amount of progress indicated. The following example shows an indeterminate progress bar:</p>
+		<code>&lt;progress&gt;&lt;/progress&gt;</code>
+		<span class="progress-container">
+			<progress></progress>
+		</span>	
+	</div>
+
+	<div class="card">
+		<h4>To know</h4>
+		<p>In the sass sheet there are some variables that allow you to customize the color, appearance, and size of the progress bar</p>
+		<code class="align-left">
+			//Colors<br/>
+			$progress-bar-color: #26a69a !default;<br/>
+			$progress-bar-background:#7c7876 !default;<br/>
+			<br/>
+			//Sizes<br/>
+			$progress-height: 6px !default;<br/>
+			$progress-width: 100% !default;<br/>
+			<br/>
+			//Apparence<br/>
+			$progress-border-radius: 1px !default;<br/>
+		</code>
+	</div>
+
+	<div class="credits">
+		Codekraft Studio &copy;2017 - info@codekraft.it
+	</div>
+
+	<!-- From here onwards, you will find what is needed for this demo page -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<style>
+		html, body {
+			background:#eee;
+			color: #666;
+			font-family: 'Roboto', 'Helvetica', sans-serif;
+			margin:0 auto;
+			padding:0;
+			text-align:center;
+			font-size: 16px;
+			font-weight: 300;
+		}
+		header {
+			background: #673AB7;
+			border-bottom: 4px solid #51a69a;
+			margin: 0 0 48px;
+			padding: 30px;
+		}
+		h1, h4 {
+			font-weight: 300;
+			margin:0;
+		}
+		h1{
+			color: white;
+			font-size: 42px;
+			text-transform:uppercase;
+		}
+		h4 {
+			font-size: 32px;
+			margin:16px 0 0;
+			color: #444;
+		}
+		header p {
+			font-size: 17px;
+			font-weight: 300;
+			color: #fff;
+			opacity: 0.8;
+			margin: 8px 32px 10px 0;
+			max-width:1090px;
+		}
+		p {
+			text-align:justify;
+			line-height:1.6;
+
+		}
+		code {
+			display: inline-block;
+			background: #41a69a;
+			color: #fff;
+			border-radius: 4px;
+			border: 1px solid #48726d;
+			padding: 12px 24px;
+			margin: 16px 12px 32px;
+		}
+		.align-left {
+			text-align:left;
+		}
+		div.card, div.credits {
+			  width: 100%;
+			  max-width:1000px;			
+			  padding: 12px 48px 48px; 
+			  margin: 16px auto 32px 32px;
+		}
+		div.card {
+			  border-radius: 2px;
+			  position: relative;
+			  background: white;
+			  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		}
+		div.credits {
+			font-size:18px;
+			color: #999;
+		}
+	</style>
+
+	<script>
+		// This script is used to animate the progress bar
+
+		var increment = 0; //set a value of zero for the progress bar
+
+		 window.setInterval( // loop adding 1
+		 function () {
+			 increment = increment + Math.round(Math.random()) * 5;
+			 document.getElementById("determinate").value = increment;
+	 		 if (increment >= 100) {
+				increment = 0;
+			 }
+		 }, 500);
+	</script>
+</body>
+</html>
