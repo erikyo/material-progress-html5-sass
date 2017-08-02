@@ -1,6 +1,8 @@
 # material-progress-html5-sass
 **A true Html5 & Sass progress bar in Material Design style!**
 
+**DEMO:** https://erikyo.github.io/material-progress-html5-sass/
+
 ![alt text](https://raw.githubusercontent.com/erikyo/material-progress-html5-sass/master/demo/progress.gif)
 
 **To install it just copy the progress.scss file into your /src/scss/ folder** and import it into your main.scss file with 
