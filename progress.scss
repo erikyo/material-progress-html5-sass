@@ -17,64 +17,63 @@ $progress-border-radius: 1px !default;
 	display:block;
 	position:relative;
 	margin: 0 auto;
-
-	progress {
-		position: relative;
-		height: $progress-height;
-		display: block;
-		width: 100%;
-		color: $progress-bar-color;
+}
+progress {
+	position: relative;
+	height: $progress-height;
+	display: block;
+	width: 100%;
+	color: $progress-bar-color;
+	background-color: $progress-bar-background;
+	border-radius: $progress-border-radius;
+	background-clip: padding-box;
+	overflow: hidden;
+	margin:0; 
+	
+	::-webkit-progress-bar  {
 		background-color: $progress-bar-background;
-		border-radius: $progress-border-radius;
-		background-clip: padding-box;
-		overflow: hidden;
-		margin:0; 
+	}
+	
+	&[value] {
+		position: absolute;
+		background-color: inherit;
+		top: 0;
+		bottom: 0;
+		background-color: $progress-bar-color;
+		transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
+		-webkit-appearance: none;
+		appearance: none;
+	}		
 
-		&[value] {
-			position: absolute;
-			background-color: inherit;
-			top: 0;
-			bottom: 0;
-			background-color: $progress-bar-color;
-			transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
-			-webkit-appearance: none;
-			appearance: none;
-		}		
+	&[value]::-webkit-progress-value {
+		background-color:$progress-bar-color;
+		transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
+	}
 
-		&[value]::-webkit-progress-bar  {
-			background-color: $progress-bar-background;
+	&:not([value]) {
+		background-color: $progress-bar-color;
+
+		&:before {
+		  content: '';
+		  position: absolute;
+		  background-color: inherit;
+		  top: 0;
+		  left:0;
+		  bottom: 0;
+		  will-change: left, right;
+		  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+
 		}
-
-		&[value]::-webkit-progress-value {
-			background-color:$progress-bar-color;
-			transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
-		}
-
-		&:not([value]) {
-			background-color: $progress-bar-color;
-
-			&:before {
-			  content: '';
-			  position: absolute;
-			  background-color: inherit;
-			  top: 0;
-			  left:0;
-			  bottom: 0;
-			  will-change: left, right;
-			  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
-
-			}
-			&:after {
-			  content: '';
-			  position: absolute;
-			  background-color: inherit;
-			  top: 0;
-			  left:0;
-			  bottom: 0;
-			  will-change: left, right;
-			  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
-			  animation-delay: 1.15s;
-			}
+		&:after {
+		  content: '';
+		  position: absolute;
+		  background-color: inherit;
+		  top: 0;
+		  left:0;
+		  bottom: 0;
+		  will-change: left, right;
+		  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+		  animation-delay: 1.15s;
 		}
 	}
 }
