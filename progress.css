@@ -1,28 +1,23 @@
-.progress-container {
+.progress-box {
   width: 100%;
-  height: 6px;
+  height: 8px;
   display: block;
   position: relative;
   margin: 0 auto; }
 
 progress {
   position: relative;
-  height: 6px;
+  height: 8px;
   display: block;
   width: 100%;
-  color: #26a69a;
   background-color: #7c7876;
   border-radius: 1px;
   background-clip: padding-box;
   overflow: hidden;
   margin: 0; }
-  progress ::-webkit-progress-bar {
+  progress::-webkit-progress-bar {
     background-color: #7c7876; }
   progress[value] {
-    position: absolute;
-    background-color: inherit;
-    top: 0;
-    bottom: 0;
     background-color: #26a69a;
     transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
     -webkit-appearance: none;

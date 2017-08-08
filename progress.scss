@@ -3,42 +3,41 @@ $progress-bar-color: #26a69a !default;
 $progress-bar-background:#7c7876 !default;
 
 //Sizes
-$progress-height: 6px !default;
+$progress-height: 8px !default;
 $progress-width: 100% !default;
 
 //Apparence
 $progress-border-radius: 1px !default;
 
+//Animation
+$progress-indeterminate-time: 2.1s;
+
 
 // PROGRESS STYLE
-.progress-container {
+.progress-box {
 	width:$progress-width;
 	height:$progress-height;
 	display:block;
 	position:relative;
 	margin: 0 auto;
 }
+
 progress {
 	position: relative;
 	height: $progress-height;
 	display: block;
 	width: 100%;
-	color: $progress-bar-color;
 	background-color: $progress-bar-background;
 	border-radius: $progress-border-radius;
 	background-clip: padding-box;
 	overflow: hidden;
 	margin:0; 
 	
-	::-webkit-progress-bar  {
+	&::-webkit-progress-bar  {
 		background-color: $progress-bar-background;
 	}
 	
 	&[value] {
-		position: absolute;
-		background-color: inherit;
-		top: 0;
-		bottom: 0;
 		background-color: $progress-bar-color;
 		transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
 		-webkit-appearance: none;
@@ -61,7 +60,7 @@ progress {
 		  left:0;
 		  bottom: 0;
 		  will-change: left, right;
-		  animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+		  animation: indeterminate $progress-indeterminate-time cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 
 		}
 		&:after {
@@ -72,7 +71,7 @@ progress {
 		  left:0;
 		  bottom: 0;
 		  will-change: left, right;
-		  animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+		  animation: indeterminate-short $progress-indeterminate-time cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
 		  animation-delay: 1.15s;
 		}
 	}

@@ -18,25 +18,100 @@
 		<h4>Determinate progress bar</h4>
 		<p>Use determinate mode for the progress bar when you want to show that a specific quantity of progress has occurred. For example, the percent remaining of a file being retrieved, the amount records in a batch written to database, or the percent remaining of a file that is uploaded.
 		To indicate determinate progress, you must set the max value of the progress bar to max="100" (100 or 1000 or what you want) and set the amount of progress by setting a value="" (like value="80").</p>
-		<code>&lt;progress max="100" value="0"&gt;&lt;/progress&gt;</code>
-		<span class="progress-container">
+		<code>&lt;progress max="100" value="<span id="determinate-value">0</span>"&gt;&lt;/progress&gt;</code>
 			<progress id="determinate" max="100" value="0"></progress>
-		</span>
 	</div>
-
 
 	<div class="card">
 		<h4>Indeterminate progress bar</h4>
 		<p>Use indeterminate mode for the progress bar when you do not know how long an operation will take. Indeterminate mode is the default for progress bar and shows a cyclic animation without a specific amount of progress indicated. The following example shows an indeterminate progress bar:</p>
-		<code>&lt;progress&gt;&lt;/progress&gt;</code>
-		<span class="progress-container">
+		<code>&lt;span class=&quot;progress-box&quot;&gt;<br/>&nbsp;&nbsp;&lt;progress&gt;&lt;/progress&gt;<br/>&lt;/span&gt;</code>
+		<span class="progress-box">
 			<progress></progress>
-		</span>	
+		</span>
+	</div>
+
+	<div class="card">
+		<h4>Styled progress bar</h4>
+		<p>There is the possibility of making your custom style for each progress bar. If you need to use an id to join with css and rewrite the values as in the demo, you may be interested: <br/><br/>
+		<code> progress {height: 10px; border-radius:5px)</code> height or border-radius<br/>
+		<code>progress::-webkit-progress-bar</code> for the bar background<br/>
+		<code>progress::-webkit-progress-value</code> or <code>progress:not([value])</code> for the line color (use background css attribute)</p>
+		<code>
+			&lt;style&gt;<br/>
+				&nbsp;&nbsp;progress#progress2 {height: 10px; border-radius:5px;box-shadow: 0 0 0 2px #ccc;}<br/>
+				&nbsp;&nbsp;progress#progress2::-webkit-progress-bar {background-color: #ccc;}<br/>
+				&nbsp;&nbsp;progress#progress2:not([value]) {background-color: #673AB7;}<br/>
+			&lt;/style&gt;
+			<br/><br/>
+		    &lt;span class=&quot;progress-box&quot;&gt;<br/>&nbsp;&nbsp;&lt;progress id="progressbar2"&gt;&lt;/progress&gt;<br/>&lt;/span&gt;
+		</code>
+			<style>
+				progress#progress2 {height: 10px; border-radius:5px;box-shadow: 0 0 0 2px #ccc;}
+				progress#progress2::-webkit-progress-bar {background-color: #ccc;}
+				progress#progress2:not([value]) {background-color: #673AB7;}
+
+				progress#progress3 {height: 16px; border-radius:0;box-shadow: 0 0 0 4px #ccc;}
+				progress#progress3::-webkit-progress-bar {background-color: #ddd;}
+				progress#progress3::-webkit-progress-value {background-color: #2196F3;transition:5s}				
+				
+				
+				@-webkit-keyframes animate-stripes {
+				   0% { background-position: 0px 0px; }
+				   100% { background-position: 60px 0px; }
+				}
+
+				@keyframes animate-stripes {
+				   0% { background-position: 0px 0px; }
+				   100% { background-position: 60px 0px; }
+				}
+				
+				progress#progress4 {}
+				progress#progress4::-webkit-progress-bar {background-color: #444;}
+				progress#progress4[value] {
+				  height: 30px;
+				  border-radius:4px;
+				  box-shadow: 0 0 0 4px #ccc;
+				  display: block;
+				  position: relative;
+				}
+				progress#progress4[value]::-webkit-progress-value {	background-color: #FFEB3B;}
+				progress#progress4[value]::after {
+					content: "";
+					width: 100%;
+					height: 100%;
+					display: block;
+					top: 0;
+					position: absolute;
+					animation: animate-stripes 2s linear infinite;
+					-webkit-animation: animate-stripes 2s linear infinite;
+					background-image: linear-gradient(135deg, #444 25%, transparent 25%,
+						transparent 50%, #444 50%, #444 75%,
+						transparent 75%, transparent); 
+					background-size: 31px 32px;
+
+				}
+
+			</style>
+			<h5>#progress2</h5>
+			<span class="progress-box">
+				<progress id="progress2"></progress>
+			</span>
+			<br/>
+			<h5>#progress3</h5>
+			<span class="progress-box">
+				<progress id="progress3" max="100" value="0"></progress>
+			</span>
+			<br/>
+			<h5>#progress4</h5>
+			<span class="progress-box">
+				<progress id="progress4" max="100" value="0"></progress>
+			</span>
 	</div>
 
 	<div class="card">
 		<h4>To know</h4>
-		<p>In the sass sheet there are some variables that allow you to customize the color, appearance, and size of the progress bar</p>
+		<p>In the sass stylesheet there are some variables that allow you to customize the default color, appearance, and size of the progress bar</p>
 		<code class="align-left">
 			//Colors<br/>
 			$progress-bar-color: #26a69a !default;<br/>
@@ -100,10 +175,10 @@
 		p {
 			text-align:justify;
 			line-height:1.6;
-
 		}
 		code {
 			display: inline-block;
+			text-align:left;
 			background: #41a69a;
 			color: #fff;
 			border-radius: 4px;
@@ -111,13 +186,19 @@
 			padding: 12px 24px;
 			margin: 16px 12px 32px;
 		}
+		p code {
+			background: #999;
+			border: 1px solid #777;
+			margin: 0 0 10px;
+			padding: 2px 8px;
+		}
 		.align-left {
 			text-align:left;
 		}
 		div.card, div.credits {
 			width:calc(100% - 64px);
 			box-sizing: border-box;
-			max-width:1100px;			
+			max-width:1100px;
 			padding: 12px 48px 48px;
 			margin: 16px auto 32px 32px;
 		}
@@ -131,6 +212,8 @@
 			font-size:18px;
 			color: #999;
 		}
+		
+
 	</style>
 
 	<script>
@@ -140,11 +223,15 @@
 
 		 window.setInterval( // loop adding 1
 		 function () {
-			 increment = increment + Math.round(Math.random()) * 5;
-			 document.getElementById("determinate").value = increment;
-	 		 if (increment >= 100) {
+			increment = increment + Math.round(Math.random()) * 5;
+			document.getElementById("determinate").value = increment;
+			document.getElementById("determinate-value").textContent = increment;
+			document.getElementById("progress3").value = increment * 1.2;
+			document.getElementById("progress4").value = increment * 0.85;
+	 		
+			if (increment >= 100) {
 				increment = 0;
-			 }
+			}
 		 }, 500);
 	</script>
 </body>
