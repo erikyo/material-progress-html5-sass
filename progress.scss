@@ -14,24 +14,16 @@ $progress-indeterminate-time: 2.1s;
 
 
 // PROGRESS STYLE
-.progress-box {
-	width:$progress-width;
-	height:$progress-height;
-	display:block;
-	position:relative;
-	margin: 0 auto;
-}
-
 progress {
 	position: relative;
 	height: $progress-height;
 	display: block;
-	width: 100%;
+	width: $progress-width;
 	background-color: $progress-bar-background;
 	border-radius: $progress-border-radius;
 	background-clip: padding-box;
 	overflow: hidden;
-	margin:0; 
+	margin:0 auto; 
 	
 	&::-webkit-progress-bar  {
 		background-color: $progress-bar-background;
@@ -42,15 +34,16 @@ progress {
 		transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
 		-webkit-appearance: none;
 		appearance: none;
-	}		
 
-	&[value]::-webkit-progress-value {
-		background-color:$progress-bar-color;
-		transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
+		&::-webkit-progress-value {
+			background-color:$progress-bar-color;
+			transition: width 0.5s cubic-bezier(0, 0, 1, -0.12);
+		}
 	}
-
+	
 	&:not([value]) {
 		background-color: $progress-bar-color;
+		position:relative;
 
 		&:before {
 		  content: '';

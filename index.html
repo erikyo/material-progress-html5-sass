@@ -25,10 +25,8 @@
 	<div class="card">
 		<h4>Indeterminate progress bar</h4>
 		<p>Use indeterminate mode for the progress bar when you do not know how long an operation will take. Indeterminate mode is the default for progress bar and shows a cyclic animation without a specific amount of progress indicated. The following example shows an indeterminate progress bar:</p>
-		<code>&lt;span class=&quot;progress-box&quot;&gt;<br/>&nbsp;&nbsp;&lt;progress&gt;&lt;/progress&gt;<br/>&lt;/span&gt;</code>
-		<span class="progress-box">
-			<progress></progress>
-		</span>
+		<code>&lt;progress&gt;&lt;/progress&gt;</code>
+		<progress></progress>
 	</div>
 
 	<div class="card">
@@ -44,7 +42,7 @@
 				&nbsp;&nbsp;progress#progress2:not([value]) {background-color: #673AB7;}<br/>
 			&lt;/style&gt;
 			<br/><br/>
-		    &lt;span class=&quot;progress-box&quot;&gt;<br/>&nbsp;&nbsp;&lt;progress id="progressbar2"&gt;&lt;/progress&gt;<br/>&lt;/span&gt;
+		    &lt;progress id="progressbar2"&gt;&lt;/progress&gt;
 		</code>
 			<style>
 				progress#progress2 {height: 10px; border-radius:5px;box-shadow: 0 0 0 2px #ccc;}
@@ -110,7 +108,7 @@
 	</div>
 
 	<div class="card">
-		<h4>To know</h4>
+		<h4>Some you want to know</h4>
 		<p>In the sass stylesheet there are some variables that allow you to customize the default color, appearance, and size of the progress bar</p>
 		<code class="align-left">
 			//Colors<br/>
@@ -133,106 +131,7 @@
 	<!-- From here onwards, you will find what is needed for this demo page -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<style>
-		html, body {
-			background:#eee;
-			color: #666;
-			font-family: 'Roboto', 'Helvetica', sans-serif;
-			margin:0 auto;
-			padding:0;
-			text-align:center;
-			font-size: 16px;
-			font-weight: 300;
-		}
-		header {
-			background: #673AB7;
-			border-bottom: 4px solid #51a69a;
-			margin: 0 0 48px;
-			padding: 32px;
-		}
-		h1, h4 {
-			font-weight: 300;
-			margin:0;
-		}
-		h1{
-			color: white;
-			font-size: 48px;
-			text-transform:uppercase;
-		}
-		h4 {
-			font-size: 32px;
-			margin:16px 0 0;
-			color: #444;
-		}
-		header p {
-			font-size: 17px;
-			font-weight: 300;
-			color: #fff;
-			opacity: 0.8;
-			margin: 0px 32px 10px 0;
-			max-width:1090px;
-		}
-		p {
-			text-align:justify;
-			line-height:1.6;
-		}
-		code {
-			display: inline-block;
-			text-align:left;
-			background: #41a69a;
-			color: #fff;
-			border-radius: 4px;
-			border: 1px solid #48726d;
-			padding: 12px 24px;
-			margin: 16px 12px 32px;
-		}
-		p code {
-			background: #999;
-			border: 1px solid #777;
-			margin: 0 0 10px;
-			padding: 2px 8px;
-		}
-		.align-left {
-			text-align:left;
-		}
-		div.card, div.credits {
-			width:calc(100% - 64px);
-			box-sizing: border-box;
-			max-width:1100px;
-			padding: 12px 48px 48px;
-			margin: 16px auto 32px 32px;
-		}
-		div.card {
-			border-radius: 2px;
-			position: relative;
-			background: white;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		}
-		div.credits {
-			font-size:18px;
-			color: #999;
-		}
-		
-
-	</style>
-
-	<script>
-		// This script is used to animate the progress bar
-
-		var increment = 0; //set a value of zero for the progress bar
-
-		 window.setInterval( // loop adding 1
-		 function () {
-			increment = increment + Math.round(Math.random()) * 5;
-			document.getElementById("determinate").value = increment;
-			document.getElementById("determinate-value").textContent = increment;
-			document.getElementById("progress3").value = increment * 1.2;
-			document.getElementById("progress4").value = increment * 0.85;
-	 		
-			if (increment >= 100) {
-				increment = 0;
-			}
-		 }, 500);
-	</script>
+	<link rel="stylesheet" href="demo/style.css">
+	<script src="demo/scripts.js"></script>
 </body>
 </html>
