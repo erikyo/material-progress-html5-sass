@@ -100,7 +100,7 @@ gulp.task('watch', function () {
   });
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['finalize']);
 
 gulp.task('finalize', function(callback) {
   return runSequence('build');
