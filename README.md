@@ -1,4 +1,4 @@
-# material-progress-html5-sass
+# material-progress-html5-sass [![Build Status](https://travis-ci.org/erikyo/material-progress-html5-sass.svg?branch=master)](https://travis-ci.org/erikyo/material-progress-html5-sass)
 **A true Html5 & Sass progress bar in Material Design style!**
 
 **DEMO:** https://erikyo.github.io/material-progress-html5-sass/
